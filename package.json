@@ -1,0 +1,24 @@
+{
+  "name": "aarvis",
+  "version": "1.0.0",
+  "description": "This is my jarvis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aman97703/aarvis.git"
+  },
+  "author": "Aman Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aman97703/aarvis/issues"
+  },
+  "homepage": "https://github.com/aman97703/aarvis#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2"
+  }
+}
