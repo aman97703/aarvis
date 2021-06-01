@@ -1,1 +1,51 @@
-var _0x2fa1=['200776vDTfBe','316028ndCSkf','435252iUcDEZ','118119fnCCIK','preventDefault','keyCode','charCodeAt','905061LujPNS','onkeydown','1BFhAjs','ctrlKey','288752cvsmvj','2wkDkGr','1NPMkXw','shiftKey','50131UZOcDj'];var _0x164317=_0x1f3c;function _0x1f3c(_0xafc79,_0x412c8b){_0xafc79=_0xafc79-0x15d;var _0x2fa1b6=_0x2fa1[_0xafc79];return _0x2fa1b6;}(function(_0x30491e,_0x5d481d){var _0x295601=_0x1f3c;while(!![]){try{var _0x39628d=-parseInt(_0x295601(0x15d))+parseInt(_0x295601(0x163))+parseInt(_0x295601(0x161))+-parseInt(_0x295601(0x164))+-parseInt(_0x295601(0x15e))*parseInt(_0x295601(0x162))+-parseInt(_0x295601(0x165))*-parseInt(_0x295601(0x16b))+parseInt(_0x295601(0x169))*parseInt(_0x295601(0x15f));if(_0x39628d===_0x5d481d)break;else _0x30491e['push'](_0x30491e['shift']());}catch(_0x3e8a5c){_0x30491e['push'](_0x30491e['shift']());}}}(_0x2fa1,0x40667),document[_0x164317(0x16a)]=_0x544814=>{var _0x269119=_0x164317;if(_0x544814[_0x269119(0x167)]===0x7b)return![];if(_0x544814[_0x269119(0x16c)]&&_0x544814['keyCode']=='E'[_0x269119(0x168)](0x0))return![];if(_0x544814['ctrlKey']&&_0x544814['shiftKey']&&_0x544814['keyCode']=='I'[_0x269119(0x168)](0x0))return![];if(_0x544814[_0x269119(0x16c)]&&_0x544814['shiftKey']&&_0x544814['keyCode']=='J'[_0x269119(0x168)](0x0))return![];if(_0x544814['ctrlKey']&&_0x544814[_0x269119(0x167)]=='U'[_0x269119(0x168)](0x0))return![];if(_0x544814[_0x269119(0x16c)]&&_0x544814[_0x269119(0x167)]=='S'[_0x269119(0x168)](0x0))return![];if(_0x544814[_0x269119(0x16c)]&&_0x544814[_0x269119(0x167)]=='H'[_0x269119(0x168)](0x0))return![];if(_0x544814[_0x269119(0x16c)]&&_0x544814[_0x269119(0x167)]=='A'['charCodeAt'](0x0))return![];if(_0x544814['ctrlKey']&&_0x544814[_0x269119(0x167)]=='F'[_0x269119(0x168)](0x0))return![];if(_0x544814['ctrlKey']&&_0x544814['keyCode']=='E'['charCodeAt'](0x0))return![];if(_0x544814[_0x269119(0x160)]&&_0x544814['keyCode']==0x79)return![];},document['addEventListener']('contextmenu',function(_0x454cd9){var _0x4aa957=_0x164317;_0x454cd9[_0x4aa957(0x166)]();},![]));
+const batchar = document.querySelector('.batchary');
+const batlevel = document.querySelector('.batlevel');
+const batchtimr = document.querySelector('.batchtimr');
+const batdisch = document.querySelector('.batdisch');
+const hdcon = document.querySelector('.hdcon');
+
+hdcon.innerHTML = `${navigator.hardwareConcurrency}`;
+navigator.getBattery().then(function (battery) {
+    function updateAllBatteryInfo() {
+        updateChargeInfo();
+        updateLevelInfo();
+        updateChargingInfo();
+        updateDischargingInfo();
+    }
+    updateAllBatteryInfo();
+
+    battery.addEventListener('chargingchange', function () {
+        updateChargeInfo();
+    });
+
+    function updateChargeInfo() {
+        const value = battery.charging ? "Yes" : "No";
+        batchar.innerHTML =  `${value}`;
+        
+    }
+
+    battery.addEventListener('levelchange', function () {
+        updateLevelInfo();
+    });
+
+    function updateLevelInfo() {
+        batlevel.innerHTML = `${battery.level * 100}%`
+    }
+
+    battery.addEventListener('chargingtimechange', function () {
+        updateChargingInfo();
+    });
+
+    function updateChargingInfo() {
+        batchtimr.innerHTML = `${battery.chargingTime} sec`;
+    }
+
+    battery.addEventListener('dischargingtimechange', function () {
+        updateDischargingInfo();
+    });
+
+    function updateDischargingInfo() {
+        batdisch.innerHTML = `${battery.dischargingTime} sec`;
+    }
+
+});

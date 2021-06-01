@@ -20,7 +20,7 @@ const _0x162d=['speechSynthesis','volume','19EnXfbv','352017ofiPjo','2bgtraX','r
 
 function readOutLoud2() {
     const speech = new SpeechSynthesisUtterance();
-    speech.text = `sleeping Jarvis..........`;
+    speech.text = `sleeping Aarvis..........`;
 
     speech.volume = 1;
     speech.rate = 1;
